@@ -1,14 +1,12 @@
 import { Label } from "@/components/ui/label";
 import { Accordion } from "@/components/ui/accordion";
 import CustomAccordionItem from "../CustomAccordionItem";
-import PersonalInfo from "./PersonalInfo/PersonalInfo";
-import CurrentEmploymentInfo from "./CurrentEmployerInfo/CurrentEmploymentInfo";
-import AdditionalEmploymentInfo from "./AdditionalEmploymentInfo/AdditionalEmploymentInfo";
-import PreviousEmploymentInfo from "./PreviousEmploymentInfo/PreviousEmploymentInfo";
-import IncomeFromOtherSource from "./IncomeFromOtherSource/IncomeFromOtherSource";
 import { Checkbox } from "@/components/ui/checkbox";
-
-const BorrowerInfo = () => {
+import Assets from "./Assets/Assets";
+import OtherAssets from "./OtherAssets/OtherAssets";
+import Liabilities from "./Liabilities/Liabilities";
+import OtherLiabilities from "./OtherLiabilities/OtherLiabilities";
+const FinancialInfoAL = () => {
   return (
     <div className="h-max w-full flex flex-col gap-4 px-30">
       <Accordion
@@ -19,14 +17,18 @@ const BorrowerInfo = () => {
       >
         <CustomAccordionItem
           value={1}
-          header={<Label>Personal Information</Label>}
-          body={<PersonalInfo />}
+          header={
+            <Label>
+              Assets – Bank Accounts, Retirement, and Other Accounts You Have
+            </Label>
+          }
+          body={<Assets />}
         />
         <CustomAccordionItem
           value={2}
           header={
             <div className="flex gap-3 justify-between w-full">
-              <Label>Current Employement/ Self Employment and Income</Label>
+              <Label>Other Assets and Credits You Have</Label>
               <div className="flex items-center gap-2">
                 <Checkbox id="terms" />
                 <Label htmlFor="terms" className="text-xs">
@@ -35,13 +37,15 @@ const BorrowerInfo = () => {
               </div>
             </div>
           }
-          body={<CurrentEmploymentInfo />}
+          body={<OtherAssets />}
         />
         <CustomAccordionItem
           value={3}
           header={
             <div className="flex gap-3 justify-between w-full">
-              <Label>Additional Employement/ Self Employment and Income</Label>
+              <Label>
+                Liabilities – Credit Cards, Other Debts, and Leases that You Owe
+              </Label>
               <div className="flex items-center gap-2">
                 <Checkbox id="terms" />
                 <Label htmlFor="terms" className="text-xs">
@@ -50,13 +54,13 @@ const BorrowerInfo = () => {
               </div>
             </div>
           }
-          body={<AdditionalEmploymentInfo />}
+          body={<Liabilities />}
         />
         <CustomAccordionItem
           value={4}
           header={
             <div className="flex gap-3 justify-between w-full">
-              <Label>Previous Employement/ Self Employment and Income </Label>
+              <Label>Other Liabilities and Expenses </Label>
               <div className="flex items-center gap-2">
                 <Checkbox id="terms" />
                 <Label htmlFor="terms" className="text-xs">
@@ -65,26 +69,11 @@ const BorrowerInfo = () => {
               </div>
             </div>
           }
-          body={<PreviousEmploymentInfo />}
-        />
-        <CustomAccordionItem
-          value={5}
-          header={
-            <div className="flex gap-3 justify-between w-full">
-              <Label>Income from Other Sources</Label>
-              <div className="flex items-center gap-2">
-                <Checkbox id="terms" />
-                <Label htmlFor="terms" className="text-xs">
-                  Does not apply
-                </Label>
-              </div>
-            </div>
-          }
-          body={<IncomeFromOtherSource />}
+          body={<OtherLiabilities />}
         />
       </Accordion>
     </div>
   );
 };
 
-export default BorrowerInfo;
+export default FinancialInfoAL;
