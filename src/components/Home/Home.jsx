@@ -8,9 +8,10 @@ import FinancialInfoRE from "./FinancialInfo-RealEstate/FinancialInfoRE";
 import LoanAndPropertyInfo from "./LoanAndPropertyIndo/LoadAndPropertyInfo";
 import Declarations from "./Declarations/Declarations";
 import Acknowledgments from "./Acknowledgments/Acknowledgments";
+import MilitaryService from "./MilitaryService/MilitaryService";
 
 const Home = () => {
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(6);
   const stepComponent = [
     <BorrowerInfo />,
     <FinancialInfoAL />,
@@ -18,6 +19,7 @@ const Home = () => {
     <LoanAndPropertyInfo />,
     <Declarations />,
     <Acknowledgments />,
+    <MilitaryService />,
   ];
   return (
     <div className="min-h-screen w-full flex flex-col items-center py-10 px:50 lg:px-60 gap-3">

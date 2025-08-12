@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Checkbox } from "@/components/ui/checkbox";
-import CustomQuestionnarieInput from "../CustomQuestionnarieInput";
+import CustomQuestionnarieInput from "../../CustomQuestionnarieInput";
 const AboutProperty = () => {
   return (
     <ul className="list-disc pl-2 flex flex-col gap-5">

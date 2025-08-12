@@ -1,5 +1,5 @@
 import React from "react";
-import CustomQuestionnarieInput from "../CustomQuestionnarieInput";
+import CustomQuestionnarieInput from "../../CustomQuestionnarieInput";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
