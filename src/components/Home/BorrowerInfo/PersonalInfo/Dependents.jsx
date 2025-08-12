@@ -9,27 +9,17 @@ const Dependents = ({ data }) => {
       <Label className="font-bold text-md">Dependents</Label>
       <CustomInput
         label="Number of Dependents"
-        additionalCssForLabel="text-xs"
         input={
-          <Input
-            type="text"
-            id="Number of Dependents"
-            placeholder="Dependents"
-            // value={data?.borrower_name || ""}
-            // onChange={handleChange}
-          />
+          <Input type="text" placeholder="Dependents" className="w-[300px]" />
         }
       />
       <CustomInput
         label="Ages of Dependents"
-        additionalCssForLabel="text-xs"
         input={
           <Input
             type="text"
-            id="Ages of Dependents"
             placeholder="Use a ',' seperator"
-            // value={data?.borrower_name || ""}
-            // onChange={handleChange}
+            className="w-[300px]"
           />
         }
       />
