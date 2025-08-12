@@ -7,6 +7,7 @@ import FinancialInfoAL from "./FinancialInfo-Assets&Liabilities/FinancialInfoAL"
 import FinancialInfoRE from "./FinancialInfo-RealEstate/FinancialInfoRE";
 import LoanAndPropertyInfo from "./LoanAndPropertyIndo/LoadAndPropertyInfo";
 import Declarations from "./Declarations/Declarations";
+import Acknowledgments from "./Acknowledgments/Acknowledgments";
 
 const Home = () => {
   const [step, setStep] = useState(0);
@@ -16,6 +17,7 @@ const Home = () => {
     <FinancialInfoRE />,
     <LoanAndPropertyInfo />,
     <Declarations />,
+    <Acknowledgments />,
   ];
   return (
     <div className="min-h-screen w-full flex flex-col items-center py-10 px:50 lg:px-60 gap-3">
