@@ -166,25 +166,22 @@ const LoanInfo = () => {
               facility, medical office, beauty/barber shop)
             </Label>
           </div>
-          <CustomInput
-            label=""
-            input={
-              <RadioGroup defaultValue="comfortable" className="w-[300px] flex">
-                <div className="flex items-center gap-3">
-                  <RadioGroupItem value="No" id="r1" />
-                  <Label htmlFor="r1" className="font-normal">
-                    No
-                  </Label>
-                </div>
-                <div className="flex items-center gap-3">
-                  <RadioGroupItem value="Yes" id="r2" />
-                  <Label htmlFor="r2" className="font-normal">
-                    Yes
-                  </Label>
-                </div>
-              </RadioGroup>
-            }
-          />
+          <div>
+            <RadioGroup defaultValue="comfortable" className="w-[300px] flex">
+              <div className="flex items-center gap-3">
+                <RadioGroupItem value="No" id="r1" />
+                <Label htmlFor="r1" className="font-normal">
+                  No
+                </Label>
+              </div>
+              <div className="flex items-center gap-3">
+                <RadioGroupItem value="Yes" id="r2" />
+                <Label htmlFor="r2" className="font-normal">
+                  Yes
+                </Label>
+              </div>
+            </RadioGroup>
+          </div>
         </div>
         {/* 2 */}
         <div className="flex justify-between">
@@ -195,25 +192,22 @@ const LoanInfo = () => {
               dwelling built on a permanent chassis)
             </Label>
           </div>
-          <CustomInput
-            label=""
-            input={
-              <RadioGroup defaultValue="comfortable" className="w-[300px] flex">
-                <div className="flex items-center gap-3">
-                  <RadioGroupItem value="No" id="r1" />
-                  <Label htmlFor="r1" className="font-normal">
-                    No
-                  </Label>
-                </div>
-                <div className="flex items-center gap-3">
-                  <RadioGroupItem value="Yes" id="r2" />
-                  <Label htmlFor="r2" className="font-normal">
-                    Yes
-                  </Label>
-                </div>
-              </RadioGroup>
-            }
-          />
+          <div>
+            <RadioGroup defaultValue="comfortable" className="w-[300px] flex">
+              <div className="flex items-center gap-3">
+                <RadioGroupItem value="No" id="r1" />
+                <Label htmlFor="r1" className="font-normal">
+                  No
+                </Label>
+              </div>
+              <div className="flex items-center gap-3">
+                <RadioGroupItem value="Yes" id="r2" />
+                <Label htmlFor="r2" className="font-normal">
+                  Yes
+                </Label>
+              </div>
+            </RadioGroup>
+          </div>
         </div>
       </div>
     </div>
