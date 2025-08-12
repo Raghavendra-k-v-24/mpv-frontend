@@ -11,6 +11,11 @@ import { Checkbox } from "@/components/ui/checkbox";
 const BorrowerInfo = () => {
   return (
     <div className="h-max w-full flex flex-col gap-4 px-30">
+      <Label className="self-center text-xs text-center">
+        This section asks about your personal information and your income from
+        employment and other sources, such as retirement, that you want
+        considered to qualify for this loan.
+      </Label>
       <Accordion
         type="single"
         collapsible

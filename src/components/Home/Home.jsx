@@ -4,10 +4,15 @@ import BorrowerInfo from "./BorrowerInfo/BorrowerInfo";
 import { Button } from "@/components/ui/button";
 import CustomStepper from "./CustomStepper";
 import FinancialInfoAL from "./FinancialInfo-Assets&Liabilities/FinancialInfoAL";
+import FinancialInfoRE from "./FinancialInfo-RealEstate/FinancialInfoRE";
 
 const Home = () => {
   const [step, setStep] = useState(1);
-  const stepComponent = [<BorrowerInfo />, <FinancialInfoAL />];
+  const stepComponent = [
+    <BorrowerInfo />,
+    <FinancialInfoAL />,
+    <FinancialInfoRE />,
+  ];
   return (
     <div className="min-h-screen w-full flex flex-col items-center py-10 px:50 lg:px-60 gap-3">
       <FileUpload />

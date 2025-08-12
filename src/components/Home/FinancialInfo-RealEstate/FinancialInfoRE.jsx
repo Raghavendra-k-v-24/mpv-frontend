@@ -2,19 +2,23 @@ import { Label } from "@/components/ui/label";
 import { Accordion } from "@/components/ui/accordion";
 import CustomAccordionItem from "../CustomAccordionItem";
 import { Checkbox } from "@/components/ui/checkbox";
-import Assets from "./Assets/Assets";
-import OtherAssets from "./OtherAssets/OtherAssets";
-import Liabilities from "./Liabilities/Liabilities";
-import OtherLiabilities from "./OtherLiabilities/OtherLiabilities";
-const FinancialInfoAL = () => {
+import PropertyYouOwn from "./PropertyYouOwn/PropertyYouOwn";
+import AdditionalProperty1 from "./AdditionalProperty1/AdditionalProperty1";
+import AdditionalProperty2 from "./AdditionalProperty2/AdditionalProperty2";
+
+const FinancialInfoRE = () => {
   return (
     <div className="h-max w-full flex flex-col gap-4 px-30">
       <Label className="self-center text-xs text-center">
-        This section asks about things you own that are worth money and that you
-        want considered to qualify for this loan. It then asks about your
-        liabilities (or debts) that you pay each month, such as credit cards,
-        alimony, or other expenses.
+        This section asks you to list all properties you currently own and what
+        you owe on them.
       </Label>
+      <div className="flex items-center gap-2 self-center">
+        <Checkbox id="terms" />
+        <Label htmlFor="terms" className="text-xs">
+          I do not own any real estate
+        </Label>
+      </div>
       <Accordion
         type="single"
         collapsible
@@ -25,16 +29,20 @@ const FinancialInfoAL = () => {
           value={1}
           header={
             <Label>
-              Assets – Bank Accounts, Retirement, and Other Accounts You Have
+              Property You Own{" "}
+              <span className="text-xs">
+                ( If you are refinancing, list the property you are refinancing
+                FIRST )
+              </span>
             </Label>
           }
-          body={<Assets />}
+          body={<PropertyYouOwn />}
         />
         <CustomAccordionItem
           value={2}
           header={
             <div className="flex gap-3 justify-between w-full">
-              <Label>Other Assets and Credits You Have</Label>
+              <Label>Complete Information for Additional Property</Label>
               <div className="flex items-center gap-2">
                 <Checkbox id="terms" />
                 <Label htmlFor="terms" className="text-xs">
@@ -43,15 +51,13 @@ const FinancialInfoAL = () => {
               </div>
             </div>
           }
-          body={<OtherAssets />}
+          body={<AdditionalProperty1 />}
         />
         <CustomAccordionItem
           value={3}
           header={
             <div className="flex gap-3 justify-between w-full">
-              <Label>
-                Liabilities – Credit Cards, Other Debts, and Leases that You Owe
-              </Label>
+              <Label>Complete Information for Additional Property</Label>
               <div className="flex items-center gap-2">
                 <Checkbox id="terms" />
                 <Label htmlFor="terms" className="text-xs">
@@ -60,26 +66,11 @@ const FinancialInfoAL = () => {
               </div>
             </div>
           }
-          body={<Liabilities />}
-        />
-        <CustomAccordionItem
-          value={4}
-          header={
-            <div className="flex gap-3 justify-between w-full">
-              <Label>Other Liabilities and Expenses </Label>
-              <div className="flex items-center gap-2">
-                <Checkbox id="terms" />
-                <Label htmlFor="terms" className="text-xs">
-                  Does not apply
-                </Label>
-              </div>
-            </div>
-          }
-          body={<OtherLiabilities />}
+          body={<AdditionalProperty2 />}
         />
       </Accordion>
     </div>
   );
 };
 
-export default FinancialInfoAL;
+export default FinancialInfoRE;
