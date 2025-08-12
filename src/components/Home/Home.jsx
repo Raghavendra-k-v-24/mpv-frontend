@@ -7,7 +7,7 @@ import FinancialInfoAL from "./FinancialInfo-Assets&Liabilities/FinancialInfoAL"
 import FinancialInfoRE from "./FinancialInfo-RealEstate/FinancialInfoRE";
 
 const Home = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
   const stepComponent = [
     <BorrowerInfo />,
     <FinancialInfoAL />,
