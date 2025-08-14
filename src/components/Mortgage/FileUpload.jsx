@@ -39,7 +39,43 @@ const FileUpload = () => {
           },
         }
       );
+      // const response = await axios.post(
+      //   "https://imv2f0l8ch.execute-api.us-east-1.amazonaws.com/v1/users/u002/applications/a002/sections",
+      //   {
+      //     "PK": "user#u003",
+
+      //     "SK": "app#a001#borrower",
+
+      //     "ApplicationId": "a001",
+
+      //     "UserId": "u001",
+
+      //     "Data": {
+      //       "first_name": "name2testfromreact",
+
+      //       "middle_name": "name3",
+
+      //       "last_name": "lastname",
+
+      //       "suffix": "sfx",
+
+      //       "ssn": "1234",
+
+      //       "date_of_birth": "10/10/80",
+
+      //       "citizenship_status": "yes",
+
+      //       "marital_status": "M",
+      //     },
+
+      //     "EntityType": "application",
+
+      //     "Category": "mortage",
+      //   }
+      // );
+      // console.log("Success:", response.data);
       const data = response.data;
+      console.log(data);
       disptach(FORMDATA.setFormData(data));
       toast.success("Form processed successfully!");
     } catch (error) {

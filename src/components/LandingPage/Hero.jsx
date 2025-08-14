@@ -19,7 +19,7 @@ const Hero = () => {
           className="bg-blue-900 mt-5 w-[350px] hover:bg-blue-950"
           onClick={() => navigate("/home")}
         >
-          Start Application
+          Explore
         </Button>
       </div>
       <div className="h-full w-full flex justify-center ">

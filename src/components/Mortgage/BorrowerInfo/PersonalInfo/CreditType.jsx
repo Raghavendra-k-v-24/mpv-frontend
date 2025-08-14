@@ -3,26 +3,38 @@ import CustomInput from "../../CustomInput";
 import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
+import { useDispatch, useSelector } from "react-redux";
+import { FORMDATA } from "../../../../redux";
 
 const CreditType = () => {
+  const data = useSelector((store) => store.formData);
+  const dispatch = useDispatch();
+  const handleRadioChange = (name, value) => {
+    dispatch(FORMDATA.setFormData({ [name]: value }));
+  };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    dispatch(FORMDATA.setFormData({ [name]: value }));
+  };
   return (
     <div className="flex flex-col gap-5">
       <CustomInput
         label="Type of Credit"
         input={
-          <RadioGroup defaultValue="comfortable" className="w-[300px]">
+          <RadioGroup
+            className="w-[300px]"
+            value={data.Data.type_of_credit}
+            onValueChange={(e) => handleRadioChange("type_of_credit", e)}
+          >
             <div className="flex items-center gap-3">
-              <RadioGroupItem
-                value="I am applying for individual credit."
-                id="r1"
-              />
+              <RadioGroupItem value="Individual" id="r1" />
               <Label htmlFor="r1" className="font-normal">
                 I am applying for individual credit.
               </Label>
             </div>
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-3">
-                <RadioGroupItem value="Permanent Resident Alien" id="r2" />
+                <RadioGroupItem value="Joint" id="r2" />
                 <Label htmlFor="r2" className="font-normal">
                   I am applying for joint credit
                 </Label>
@@ -35,10 +47,12 @@ const CreditType = () => {
         label="Total number of Borrowers"
         input={
           <Input
-            type="text"
+            type="number"
+            name="number_of_borrowers"
             placeholder="Number of Borrowers"
             className="w-[300px]"
-            disabled
+            value={data.Data.number_of_borrowers}
+            onChange={handleChange}
           />
         }
       />
@@ -47,9 +61,11 @@ const CreditType = () => {
         input={
           <Input
             type="text"
+            name="initials"
             className="w-[300px]"
             placeholder="Your initials"
-            disabled
+            value={data.Data.initials}
+            onChange={handleChange}
           />
         }
       />

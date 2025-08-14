@@ -28,13 +28,27 @@ import { Separator } from "@/components/ui/separator";
 import CreditType from "./CreditType";
 const PersonalInfo = () => {
   const [open, setOpen] = useState(false);
-  const [date, setDate] = useState(undefined);
   const data = useSelector((store) => store.formData);
-  const disptach = useDispatch();
+  const reduxDate = useSelector((state) => state.formData.Data.date_of_birth);
+  const [date, setDate] = useState(reduxDate ? new Date(reduxDate) : null);
+
+  console.log(data);
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    disptach(FORMDATA.setFormData({ [name]: value }));
+    dispatch(FORMDATA.setFormData({ [name]: value }));
+  };
+
+  const handleRadioChange = (name, value) => {
+    dispatch(FORMDATA.setFormData({ [name]: value }));
+  };
+  const handleDateChange = (selectedDate) => {
+    setDate(selectedDate);
+    dispatch(
+      FORMDATA.setFormData({ date_of_birth: selectedDate?.toISOString() || "" })
+    );
+    setOpen(false);
   };
   return (
     <div className="flex flex-col gap-5">
@@ -42,12 +56,28 @@ const PersonalInfo = () => {
       <div className="flex gap-10">
         <CustomInput
           label="Borrower Name"
-          input={<Input type="text" placeholder="Name" className="w-[300px]" />}
+          input={
+            <Input
+              type="text"
+              name="borrower_name"
+              placeholder="Name"
+              className="w-[300px]"
+              value={data.Data.borrower_name}
+              onChange={handleChange}
+            />
+          }
         />
         <CustomInput
           label="Social Security Number"
           input={
-            <Input type="number" placeholder="SSN" className="w-[300px]" />
+            <Input
+              type="number"
+              name="ssn"
+              placeholder="SSN"
+              className="w-[300px]"
+              value={data.Data.ssn}
+              onChange={handleChange}
+            />
           }
         />
       </div>
@@ -75,10 +105,7 @@ const PersonalInfo = () => {
                   mode="single"
                   selected={date}
                   captionLayout="dropdown"
-                  onSelect={(date) => {
-                    setDate(date);
-                    setOpen(false);
-                  }}
+                  onSelect={handleDateChange}
                 />
               </PopoverContent>
             </Popover>
@@ -89,8 +116,11 @@ const PersonalInfo = () => {
           input={
             <Input
               type="text"
+              name="alternate_names"
               placeholder="Alternate Names"
               className="w-[300px]"
+              value={data.Data.alternate_names}
+              onChange={handleChange}
             />
           }
         />
@@ -100,7 +130,11 @@ const PersonalInfo = () => {
         <CustomInput
           label="Citizenship"
           input={
-            <RadioGroup defaultValue="comfortable" className="w-[300px]">
+            <RadioGroup
+              className="w-[300px]"
+              value={data.Data.citizenship}
+              onValueChange={(e) => handleRadioChange("citizenship", e)}
+            >
               <div className="flex items-center gap-3">
                 <RadioGroupItem value="U.S. Citizen" id="r1" />
                 <Label htmlFor="r1" className="font-normal">
@@ -125,7 +159,11 @@ const PersonalInfo = () => {
         <CustomInput
           label="Marital Status"
           input={
-            <RadioGroup defaultValue="comfortable" className="w-[300px]">
+            <RadioGroup
+              className="w-[300px]"
+              value={data.Data.marital_status}
+              onValueChange={(e) => handleRadioChange("marital_status", e)}
+            >
               <div className="flex items-center gap-3">
                 <RadioGroupItem value="Married" id="r1" />
                 <Label htmlFor="r1" className="font-normal">
@@ -173,9 +211,12 @@ const PersonalInfo = () => {
             label="Name(s) of Other Borrower(s) Applying for this Loan"
             input={
               <Input
-                className="w-[300px]"
                 type="text"
+                name="other_borrowers"
+                className="w-[300px]"
                 placeholder="Use a ',' seperator"
+                value={data.Data.other_borrowers}
+                onChange={handleChange}
               />
             }
           />
