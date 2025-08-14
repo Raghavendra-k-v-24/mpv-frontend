@@ -10,7 +10,7 @@ const Header = () => {
     <header className="min-h-[50px] w-full flex items-center justify-between px-50 xl:px-60">
       <div
         className="h-full w-max flex gap-2 items-center cursor-pointer "
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/home")}
       >
         <img
           src={logo}
