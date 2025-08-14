@@ -32,16 +32,18 @@ const Mortgage = () => {
       <CustomStepper step={step} />
       <div className="w-full flex">
         <ChevronLeft
-          className={`text-blue-900 hover:text-blue-600 ${
+          className={`text-blue-900 hover:text-blue-600 bg-blue-50 rounded-4xl ${
             step === 0 ? "opacity-30 cursor-not-allowed" : ""
           }`}
+          size={30}
           onClick={() => step > 0 && setStep((prev) => prev - 1)}
         />
         {stepComponent[step]}
         <ChevronRight
-          className={`text-blue-900 hover:text-blue-700 ${
+          className={`text-blue-900 hover:text-blue-700 bg-blue-50 rounded-4xl ${
             step === 8 ? "opacity-30 cursor-not-allowed" : ""
           }`}
+          size={30}
           onClick={() => setStep((prev) => Math.min(prev + 1, 8))}
         />
       </div>
